@@ -325,3 +325,4 @@ tags
 .pytest_cache/
 
 
+/Pipfile.lock
