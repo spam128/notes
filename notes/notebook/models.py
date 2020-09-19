@@ -20,6 +20,7 @@ class Category(models.Model):
 class Note(models.Model):
     full_name = models.CharField(max_length=200)
     description = models.CharField(max_length=2048)
+
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='notes')
 
     class Meta:
@@ -36,8 +37,9 @@ class Note(models.Model):
 
 class Photo(models.Model):
     full_name = models.CharField(max_length=200)
-    note = models.ForeignKey(Note, related_name='photos')
     description = models.CharField(max_length=2048)
+
+    note = models.ForeignKey(Note, related_name='photos', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'photo'
