@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}User: {{ object.username }} create note{% endblock title %}
+
+{% block breadcrumbs %}
+
+  <div class="breadcrumbs1">
+    <div class="breadcrumbs1_inner"><a href="index.html">Home Page</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;Flower List
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <a href="{% url 'notebook:note-create' %}">
+    <button class="btn btn-danger">Dodaj</button>
+  </a>
+  <div class="line1"></div>
+  <div class="container">
+      {% for flower in object_list %}
+        <div class="card span4" style="width: 18rem;padding: 4px">
+          <img class="card-img-top" src="/static/notes/images/gallery09.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ flower.full_name }}</h5>
+            <p class="card-text">{{ flower.description }}</p>
+          </div>
+          <a href="{{ flower.get_absolute_url }}">
+            <button class="btn btn-success">Edytuj</button>
+          </a>
+        </div>
+      {% endfor %}
+  </div>
+{% endblock content %}

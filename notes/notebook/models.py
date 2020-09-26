@@ -44,18 +44,20 @@ class Note(models.Model):
     class Meta:
         verbose_name = 'Note'
         verbose_name_plural = 'Notes'
-        ordering = ['full_name', ]  # TODO buttons to reorder
+        ordering = ['full_name', ]
 
     def __str__(self):
         return self.full_name
 
-    # def get_absolute_url(self):
-    #     return reverse('note-detail', args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse('notebook:note-detail', args=[str(self.id), ])
 
 
 class Photo(models.Model):
     full_name = models.CharField(max_length=200)
     description = models.CharField(max_length=2048)
+
+    photo = models.ImageField()
 
     note = models.ForeignKey(Note, related_name='photos', on_delete=models.CASCADE)
 
