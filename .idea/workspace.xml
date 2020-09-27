@@ -1,20 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9370188f-9da7-4aba-8bd7-af719d5e2895" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/notebook/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes/notebook/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9370188f-9da7-4aba-8bd7-af719d5e2895" name="Default Changelist" comment="refactorization">
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/css/bootstrap-responsive.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/css/camera.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/css/ie.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/css/isotope.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/css/touchTouch.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/fonts/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/about01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/arr_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/arr_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/banner1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/banner2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/banner3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/blank.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/button2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/camera-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/camera_paper1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/camera_skins.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/contacts01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/corner1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/corner2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/corner3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/corner4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/date1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery07.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery08.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery09.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/gallery12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/li_st1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/line1_px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/nav.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/paginations.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/photo1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/prices01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/prices02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/prices03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/prices04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/prices05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/prices06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/prices07.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/prices08.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/prices09.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/prices10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/search.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/services01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/services02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/services03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/services04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/services05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/services06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/services07.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/services08.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/services09.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/slide01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/slide02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/slide03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/slide04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/slide05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/slogan1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/social_ic1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/social_ic2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/social_ic3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/staff01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/staff02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/staff03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/staff04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/top1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/totop.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/images/vl1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/camera.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/cform.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/jquery.easing.1.3.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/jquery.equalheights.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/jquery.isotope.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/jquery.mobile.customized.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/jquery.ui.totop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/superfish.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/js/touchTouch.jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/sass/custom_bootstrap_vars.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/search/results.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/search/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/static/notes/search/search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/notes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/notes.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/static/css/project.css" beforeDir="false" afterPath="$PROJECT_DIR$/notes/static/notes/css/project.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/static/images/favicons/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/notes/static/notes/images/favicons/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/static/js/project.js" beforeDir="false" afterPath="$PROJECT_DIR$/notes/static/notes/js/project.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/static/sass/project.scss" beforeDir="false" afterPath="$PROJECT_DIR$/notes/static/notes/sass/project.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -23,6 +133,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -38,13 +149,24 @@
   </component>
   <component name="ProjectId" id="1hhBVmWzV5Xk9eqr3zvqfiwWSy9" />
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/config/settings/local.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/notes/templates" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/notes/static/notes" />
+      <recent name="$PROJECT_DIR$/notes/static" />
+      <recent name="$PROJECT_DIR$/notes/static/search/notes" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/notes/templates" />
+      <recent name="$PROJECT_DIR$/notes/static/css" />
+      <recent name="$PROJECT_DIR$/notes/static/images" />
+      <recent name="$PROJECT_DIR$/notes/static" />
+      <recent name="$PROJECT_DIR$/notes/static/js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -59,7 +181,53 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.migrate">
+  <component name="RunManager" selected="Django server.run">
+    <configuration name="collectstatic" type="Python.DjangoServer" factoryName="Django server">
+      <module name="notes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="config.settings.local" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="true" />
+      <option name="customRunCommand" value="collectstatic" />
+      <method v="2" />
+    </configuration>
+    <configuration name="makemigrations" type="Python.DjangoServer" factoryName="Django server">
+      <module name="notes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="config.settings.local" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="true" />
+      <option name="customRunCommand" value="makemigrations" />
+      <method v="2" />
+    </configuration>
     <configuration name="run" type="Python.DjangoServer" factoryName="Django server">
       <module name="notes" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,6 +252,17 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Django server.migrate" />
+      <item itemvalue="Django server.makemigrations" />
+      <item itemvalue="Django server.collectstatic" />
+      <item itemvalue="Django server.run" />
+      <item itemvalue="Django server.runserver" />
+      <item itemvalue="Django server.runserver_plus" />
+      <item itemvalue="Python.merge_production_dotenvs_in_dotenv" />
+      <item itemvalue="Python tests.pytest: ." />
+      <item itemvalue="Python tests.pytest: users" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -97,7 +276,12 @@
       <updated>1600453469335</updated>
       <workItem from="1600453472475" duration="706000" />
       <workItem from="1600503016438" duration="7242000" />
-      <workItem from="1600513185664" duration="1325000" />
+      <workItem from="1600513185664" duration="16688000" />
+      <workItem from="1600944893235" duration="2854000" />
+      <workItem from="1601048493252" duration="9793000" />
+      <workItem from="1601106799673" duration="35014000" />
+      <workItem from="1601155457152" duration="3041000" />
+      <workItem from="1601200450467" duration="1441000" />
     </task>
     <task id="LOCAL-00001" summary="generated project from cookiecutter">
       <created>1600504630747</created>
@@ -113,7 +297,91 @@
       <option name="project" value="LOCAL" />
       <updated>1600504651730</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update gitignore">
+      <created>1600515912828</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1600515912828</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update pipfile">
+      <created>1600515923589</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600515923589</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added notebook app">
+      <created>1600515945756</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1600515945756</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added category, photo, note models">
+      <created>1600517202358</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1600517202358</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactorization">
+      <created>1600517608510</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600517608510</updated>
+    </task>
+    <task id="LOCAL-00008" summary="added note_create template">
+      <created>1600518432769</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1600518432769</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added cripsy forms">
+      <created>1600518513383</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1600518513383</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added notebook migration">
+      <created>1600519688890</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1600519688890</updated>
+    </task>
+    <task id="LOCAL-00011" summary="default notes types added">
+      <created>1600524944584</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1600524944584</updated>
+    </task>
+    <task id="LOCAL-00012" summary="type model refactorization">
+      <created>1600525151367</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1600525151367</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added notes url to config">
+      <created>1600525179955</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1600525179955</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added notes CRU and list, added templates">
+      <created>1601157890843</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1601157890843</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +402,36 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="generated project from cookiecutter" />
-    <option name="LAST_COMMIT_MESSAGE" value="generated project from cookiecutter" />
+    <MESSAGE value="update gitignore" />
+    <MESSAGE value="update pipfile" />
+    <MESSAGE value="added notebook app" />
+    <MESSAGE value="added category, photo, note models" />
+    <MESSAGE value="refactorization" />
+    <MESSAGE value="added note_create template" />
+    <MESSAGE value="added cripsy forms" />
+    <MESSAGE value="added notebook migration" />
+    <MESSAGE value="default notes types added" />
+    <MESSAGE value="type model refactorization" />
+    <MESSAGE value="added notes url to config" />
+    <MESSAGE value="added notes CRU and list, added templates" />
+    <option name="LAST_COMMIT_MESSAGE" value="added notes CRU and list, added templates" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/notes/notebook/views.py</url>
+          <line>21</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
