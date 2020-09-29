@@ -8,6 +8,7 @@ User = get_user_model()
 
 class Category(models.Model):
     full_name = models.CharField(max_length=200)
+    type = models.ForeignKey('Type', on_delete=models.PROTECT, blank=True, null=True, related_name='notes')
 
     class Meta:
         verbose_name = 'category'
@@ -32,12 +33,14 @@ class Type(models.Model):
     def __str__(self):
         return self.full_name
 
+    def get_list_url(self):
+        return reverse('notebook:{type_full_name}-list'.format(type_full_name=self.full_name.lower().replace(' ', '_')))
+
 
 class Note(models.Model):
     full_name = models.CharField(max_length=200)
     description = models.CharField(max_length=2048)
 
-    type = models.ForeignKey(Type, on_delete=models.PROTECT, blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='notes', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
