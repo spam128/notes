@@ -7,7 +7,7 @@ from crispy_forms.layout import Submit
 from crispy_forms.helper import FormHelper
 from django.forms import modelformset_factory
 
-from notes.notebook.models import Note, Photo
+from notes.notebook.models import Note, Photo, Category, Type
 
 User = get_user_model()
 
@@ -18,9 +18,25 @@ class NoteModelForm(forms.ModelForm):
         fields = '__all__'
         widgets = {'user': forms.HiddenInput()}
 
+
+class CategoryModelForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
     def __init__(self, *args, **kwargs):
-        # self.user = kwargs.pop('user', None)
-        super(NoteModelForm, self).__init__(*args, **kwargs)
+        super(CategoryModelForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.add_input(Submit('submit', 'Submit'))
+
+
+class TypeModelForm(forms.ModelForm):
+    class Meta:
+        model = Type
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(TypeModelForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.add_input(Submit('submit', 'Submit'))
 
