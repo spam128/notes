@@ -12,12 +12,17 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
-    <h2>Note</h2>
-      {% crispy form %}
-    <div class="line2"></div>
-    <h2>Photos</h2>
-      {{ photo_formset.as_table }}
-  </div>
+  <form method="post" action="{% url "notebook:note-add" %}">
+      {% csrf_token %}
+    <div class="container">
+      <h2>Note</h2>
+        {% crispy form %}
+      <div class="line2"></div>
+      <h2>Photos</h2>
+        {% crispy photo_formset %}
+      <div class="line1"></div>
+      <input type="submit" class="btn btn-info" >
+    </div>
+  </form>
 {% endblock content %}
 
