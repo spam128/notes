@@ -5,16 +5,19 @@
 {% block title %}User: {{ object.username }} create note{% endblock title %}
 
 {% block breadcrumbs %}
-<div class="breadcrumbs1">
-<div class="breadcrumbs1_inner"><a href="index.html">Home Page</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;Add Note</div>
-</div>
+  <div class="breadcrumbs1">
+    <div class="breadcrumbs1_inner"><a href="index.html">Home Page</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;Add Note
+    </div>
+  </div>
 {% endblock %}
 
 {% block content %}
   <div class="container">
-    {% crispy form %}
+    <h2>Note</h2>
+      {% crispy form %}
     <div class="line2"></div>
-    {{ photo_formset.as_table }}
+    <h2>Photos</h2>
+      {{ photo_formset.as_table }}
   </div>
 {% endblock content %}
 
