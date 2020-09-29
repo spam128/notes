@@ -6,34 +6,20 @@
       <span class="icon-bar"></span>
     </a>
     <div class="nav-collapse nav-collapse_ collapse">
-
       <ul class="nav sf-menu clearfix">
-        <li><a href="index.html">home page</a></li>
-
+        <li><a href="{% url "home" %}">home page</a></li>
           {% for type in types %}
             <li class="active sub-menu sub-menu-1"><a href="{{ type.get_list_url }}">{{ type.full_name }}</a>
               <ul>
-                  {% for category in type.notes.category.all %}
+                  {% for category in type.categories.all %}
                     <li><a href="#">{{ category.full_name }}</a></li>
                   {% endfor %}
               </ul>
             </li>
           {% endfor %}
+        <li><a href="{% url "notebook:category-add" %}">Add Category</a></li>
+        <li><a href="{% url "notebook:type-add" %}">Add Type</a></li>
       </ul>
-
-        {#      <ul class="nav sf-menu clearfix">#}
-        {#        <li><a href="index.html">home page</a></li>#}
-        {#      <li class="active sub-menu sub-menu-1"><a href="{% url 'notebook:flower-list' %}">Kwiaty</a>#}
-        {#        <ul>#}
-        {#            {% for category in flower_categories %}#}
-        {#              <li><a href="{% url category.get_absolute_url %}">category.full_name</a></li>#}
-        {#            {% endfor %}#}
-        {#        </ul>#}
-        {#      </li>#}
-        {#      <li class="active sub-menu sub-menu-1"><a href="{% url 'notebook:flower-list' %}">Kompozycje</a></li>#}
-        {#      <li class="active sub-menu sub-menu-1"><a href="{% url 'notebook:flower-list' %}">Przepisy</a></li>#}
-        {#      <li class="active sub-menu sub-menu-1"><a href="{% url 'notebook:flower-list' %}">Dekoracja Wnętrz</a></li>#}
-        {#      </ul>#}
     </div>
   </div>
 </div>
