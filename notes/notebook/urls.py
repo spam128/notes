@@ -8,7 +8,7 @@ urlpatterns = [
     path("note/add/", view=NoteCreateView.as_view(), name="note-add"),
     path("note/", view=NoteListView.as_view(), name="note-list"),
     path("note/category/<int:pk>", view=NoteByCategoryListView.as_view(), name="note-category-list"),
-    path("note/<int:pk>", view=NoteUpdateView.as_view(), name="note-detail"),
+    path("note/<int:id>", view=NoteUpdateView.as_view(), name="note-detail"),
 
     path("category/add", view=CategoryCreateView.as_view(), name="category-add"),
 

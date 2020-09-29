@@ -9,8 +9,8 @@ from django.views.generic.edit import FormMixin
 from django.views.generic.edit import FormView
 from django.shortcuts import redirect, render
 
-from notes.notebook.models import Note, Type
-from notes.notebook.forms import NoteModelForm, PhotoFormSet
+from notes.notebook.models import Note, Type, Category
+from notes.notebook.forms import NoteModelForm, PhotoFormSet, CategoryModelForm, TypeModelForm
 
 User = get_user_model()
 
@@ -54,6 +54,16 @@ class NoteListView(LoginRequiredMixin, ListView):
         context['types'] = Type.objects.all().select_related()
         return context
 
+class NoteByCategoryListView(LoginRequiredMixin, ListView):
+    template_name = 'notebook/notebook-list.html'
+
+    def get_queryset(self):
+        return Note.objects.filter(user=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super(NoteListView, self).get_context_data(**kwargs)
+        context['types'] = Type.objects.all().select_related()
+        return context
 
 class NoteUpdateView(LoginRequiredMixin, UpdateView, FormMixin):
     template_name = 'notebook/notebook-detail.html'
@@ -62,3 +72,30 @@ class NoteUpdateView(LoginRequiredMixin, UpdateView, FormMixin):
 
     def get_queryset(self):
         return Note.objects.filter(user=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['types'] = Type.objects.all().select_related()
+        return context
+
+
+class CategoryCreateView(LoginRequiredMixin, CreateView):
+    form_class = CategoryModelForm
+    template_name = 'notebook/create.html'
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['types'] = Type.objects.all().select_related()
+        return context
+
+
+class TypeCreateView(LoginRequiredMixin, CreateView):
+    form_class = TypeModelForm
+    template_name = 'notebook/create.html'
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['types'] = Type.objects.all().select_related()
+        return context
