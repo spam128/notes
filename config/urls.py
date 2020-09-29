@@ -9,7 +9,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from config.views import HomeView
 
 urlpatterns = [
-    path("", HomeView, name="home"),
+    path("", HomeView.as_view(), name="home"),
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
