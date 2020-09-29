@@ -9,7 +9,7 @@ from django.views.generic.edit import FormMixin
 from django.views.generic.edit import FormView
 from django.shortcuts import redirect, render
 
-from notes.notebook.models import Note
+from notes.notebook.models import Note, Type
 from notes.notebook.forms import NoteModelForm, PhotoFormSet
 
 User = get_user_model()
@@ -25,7 +25,12 @@ class NoteCreateView(LoginRequiredMixin, CreateView):
 
     def get(self, request, *args, **kwargs):
         photo_formset = PhotoFormSet()
-        return render(request, 'notebook/note_create.html', {'form': NoteModelForm(), 'photo_formset': photo_formset})
+        context = {
+            'form': NoteModelForm(),
+            'photo_formset': photo_formset,
+            'types': Type.objects.all().select_related()
+        }
+        return render(request, 'notebook/note_create.html', context)
 
     def post(self, request, *args, **kwargs):
         data = request.POST.copy()
@@ -43,6 +48,11 @@ class NoteListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Note.objects.filter(user=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super(NoteListView, self).get_context_data(**kwargs)
+        context['types'] = Type.objects.all().select_related()
+        return context
 
 
 class NoteUpdateView(LoginRequiredMixin, UpdateView, FormMixin):

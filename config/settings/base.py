@@ -4,6 +4,9 @@ Base settings to build other settings files upon.
 from pathlib import Path
 
 import environ
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # notes/
@@ -42,7 +45,12 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres:///notes")
+    # "default": env.db("DATABASE_URL", default="postgres:///notes")
+    #sqlite
+    'default': { #TODO change do pythonanywhere mysql
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
@@ -74,7 +82,6 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
-    "crispy_forms",
 ]
 
 LOCAL_APPS = [

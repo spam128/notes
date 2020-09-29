@@ -1,19 +1,39 @@
 <div class="navbar navbar_">
-	<div class="navbar-inner navbar-inner_">
-		<a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</a>
-		<div class="nav-collapse nav-collapse_ collapse">
-			<ul class="nav sf-menu clearfix">
-<li><a href="index.html">home page</a></li>
-<li class="active sub-menu sub-menu-1"><a href="{% url 'notebook:flower-list' %}"}>Kwiaty</a></li>
-<li><a href="index-2.html">services</a></li>
-<li><a href="index-3.html">gallery</a></li>
-<li><a href="index-4.html">prices</a></li>
-<li><a href="index-5.html">contacts</a></li>
-    </ul>
-		</div>
-	</div>
+  <div class="navbar-inner navbar-inner_">
+    <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+    <div class="nav-collapse nav-collapse_ collapse">
+
+      <ul class="nav sf-menu clearfix">
+        <li><a href="index.html">home page</a></li>
+
+          {% for type in types %}
+            <li class="active sub-menu sub-menu-1"><a href="{{ type.get_list_url }}">{{ type.full_name }}</a>
+              <ul>
+                  {% for category in type.notes.category.all %}
+                    <li><a href="#">{{ category.full_name }}</a></li>
+                  {% endfor %}
+              </ul>
+            </li>
+          {% endfor %}
+      </ul>
+
+        {#      <ul class="nav sf-menu clearfix">#}
+        {#        <li><a href="index.html">home page</a></li>#}
+        {#      <li class="active sub-menu sub-menu-1"><a href="{% url 'notebook:flower-list' %}">Kwiaty</a>#}
+        {#        <ul>#}
+        {#            {% for category in flower_categories %}#}
+        {#              <li><a href="{% url category.get_absolute_url %}">category.full_name</a></li>#}
+        {#            {% endfor %}#}
+        {#        </ul>#}
+        {#      </li>#}
+        {#      <li class="active sub-menu sub-menu-1"><a href="{% url 'notebook:flower-list' %}">Kompozycje</a></li>#}
+        {#      <li class="active sub-menu sub-menu-1"><a href="{% url 'notebook:flower-list' %}">Przepisy</a></li>#}
+        {#      <li class="active sub-menu sub-menu-1"><a href="{% url 'notebook:flower-list' %}">Dekoracja Wnętrz</a></li>#}
+        {#      </ul>#}
+    </div>
+  </div>
 </div>
