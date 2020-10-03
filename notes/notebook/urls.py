@@ -5,10 +5,11 @@ from notes.notebook.views import NoteCreateView, NoteListView, NoteUpdateView, C
 
 app_name = "users"
 urlpatterns = [
-    path("note/add/", view=NoteCreateView.as_view(), name="note-add"),
-    path("note/", view=NoteListView.as_view(), name="note-list"),
-    path("note/category/<int:pk>", view=NoteByCategoryListView.as_view(), name="note-category-list"),
-    path("note/<int:id>", view=NoteUpdateView.as_view(), name="note-detail"),
+    path("add/<int:type>/", view=NoteCreateView.as_view(), name="note-add"),
+    path("<int:pk>", view=NoteListView.as_view(), name="note-list"),
+    path("category/<int:pk>/", view=NoteByCategoryListView.as_view(), name="note-category-list"),
+    path("<int:pk>/", view=NoteUpdateView.as_view(), name="note-detail"),
+    path("update/<int:pk>/", view=NoteUpdateView.as_view(), name="note-update"),
 
     path("category/add", view=CategoryCreateView.as_view(), name="category-add"),
 
