@@ -8,11 +8,18 @@ from django.views.generic import DetailView, RedirectView, UpdateView, CreateVie
 from django.views.generic.edit import FormMixin
 from django.views.generic.edit import FormView
 from django.shortcuts import redirect, render
+from django.db import IntegrityError, transaction
 
 from notes.notebook.models import Note, Type, Category
 from notes.notebook.forms import NoteModelForm, PhotoFormSet, CategoryModelForm, TypeModelForm
 
 User = get_user_model()
+
+
+def add_navbar_variables(context, selected_type=None):
+    context['types'] = Type.objects.all().select_related()
+    context['selected_type'] = selected_type
+    return context
 
 
 class NoteCreateView(LoginRequiredMixin, CreateView):
@@ -28,19 +35,35 @@ class NoteCreateView(LoginRequiredMixin, CreateView):
         context = {
             'form': NoteModelForm(),
             'photo_formset': photo_formset,
-            'types': Type.objects.all().select_related()
         }
+        add_navbar_variables(context, self.kwargs.get('type'))
         return render(request, 'notebook/note_create.html', context)
 
     def post(self, request, *args, **kwargs):
         data = request.POST.copy()
+        files = request.FILES
         data['user'] = request.user
         form = NoteModelForm(data)
-        if form.is_valid():
-            form.save()
-            return redirect(form.instance.get_absolute_url())
-        else:
-            return render(request, 'notebook/note_create.html', {'form': form})
+        photo_formset = None
+        try:
+            with transaction.atomic():
+                if form.is_valid():
+                    note_instance = form.save()
+                    photo_formset = PhotoFormSet(data, files)
+                    for photo_form in photo_formset.forms:
+                        photo_form.instance.note = note_instance
+                    if photo_formset.is_valid():
+                        photo_formset.save()
+                    else:
+                        raise IntegrityError()
+                    return redirect(form.instance.get_absolute_url())
+        except:
+            context = {
+                'form': form,
+                'photo_formset': photo_formset if photo_formset else PhotoFormSet(data, files)
+            }
+            add_navbar_variables(context, kwargs.get('type'))
+            return render(request, 'notebook/note_create.html', context)
 
 
 class NoteListView(LoginRequiredMixin, ListView):
@@ -51,8 +74,9 @@ class NoteListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(NoteListView, self).get_context_data(**kwargs)
-        context['types'] = Type.objects.all().select_related()
+        add_navbar_variables(context, self.kwargs.get('pk'))
         return context
+
 
 class NoteByCategoryListView(LoginRequiredMixin, ListView):
     template_name = 'notebook/notebook-list.html'
@@ -65,6 +89,7 @@ class NoteByCategoryListView(LoginRequiredMixin, ListView):
         context['types'] = Type.objects.all().select_related()
         return context
 
+
 class NoteUpdateView(LoginRequiredMixin, UpdateView, FormMixin):
     template_name = 'notebook/notebook-detail.html'
     object_name = 'flower'
@@ -74,9 +99,17 @@ class NoteUpdateView(LoginRequiredMixin, UpdateView, FormMixin):
         return Note.objects.filter(user=self.request.user)
 
     def get_context_data(self, **kwargs):
+        storage = messages.get_messages(self.request)
         context = super().get_context_data(**kwargs)
-        context['types'] = Type.objects.all().select_related()
+        add_navbar_variables(context, self.kwargs.get('pk'))
+        context['messages'] = storage
         return context
+
+    def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+        message = _("form {} successfully updated".format(self.object))
+        messages.add_message(request, messages.INFO, message=message)
+        return response
 
 
 class CategoryCreateView(LoginRequiredMixin, CreateView):
