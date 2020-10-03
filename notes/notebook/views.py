@@ -4,14 +4,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import DetailView, RedirectView, UpdateView, CreateView, ListView
+from django.views.generic import DetailView, RedirectView, UpdateView, CreateView, ListView, DeleteView
 from django.views.generic.edit import FormMixin
 from django.views.generic.edit import FormView
 from django.shortcuts import redirect, render
 from django.db import IntegrityError, transaction
 
 from notes.notebook.models import Note, Type, Category
-from notes.notebook.forms import NoteModelForm, PhotoFormSet, CategoryModelForm, TypeModelForm
+from notes.notebook.forms import NoteModelForm, PhotoFormSet, CategoryModelForm, TypeModelForm, DeleteModelForm
 
 User = get_user_model()
 
@@ -110,6 +110,24 @@ class NoteUpdateView(LoginRequiredMixin, UpdateView, FormMixin):
         message = _("form {} successfully updated".format(self.object))
         messages.add_message(request, messages.INFO, message=message)
         return response
+
+
+class NoteDeleteView(LoginRequiredMixin, DeleteView):
+    form_class = DeleteModelForm
+    template_name = 'notebook/notebook-delete.html'
+
+    def get_success_url(self):
+        message = _("{} successfully deleted".format(self.object))
+        messages.add_message(self.request, messages.INFO, message=message)
+        return reverse_lazy('notebook:note-list', args=[self.object.category.type.id, ])
+
+    def get_queryset(self):
+        return Note.objects.filter(user=self.request.user)
+
+    def get_context_data(self, *args, **kwargs):
+        context=super().get_context_data(*args,**kwargs)
+        add_navbar_variables(context, context['note'].category.type.id)
+        return context
 
 
 class CategoryCreateView(LoginRequiredMixin, CreateView):

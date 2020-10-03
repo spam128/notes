@@ -18,6 +18,15 @@ class NoteModelForm(forms.ModelForm):
         fields = '__all__'
         widgets = {'user': forms.HiddenInput()}
 
+class DeleteModelForm(forms.ModelForm):
+    class Meta(admin_forms.UserChangeForm.Meta):
+        model = Note
+        fields = ['id',]
+        widgets = {'user': forms.HiddenInput()}
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.add_input(Submit('submit', 'Yes'))
 
 class CategoryModelForm(forms.ModelForm):
     class Meta:

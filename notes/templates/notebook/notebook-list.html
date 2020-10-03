@@ -13,6 +13,12 @@
 {% endblock %}
 
 {% block content %}
+    {% for message in messages %}
+      <div class="alert alert-success">
+          {{ message }}
+      </div>
+    {% endfor %}
+
   <a href="{% url 'notebook:note-add' selected_type %}">
     <button class="btn btn-danger">Dodaj</button>
   </a>
@@ -20,7 +26,8 @@
   <div class="container">
       {% for note in object_list %}
         <div class="card span4" style="width: 18rem;padding: 4px">
-         {% if note.main_photo_url %} <img class="card-img-top" src="{{ note.main_photo_url }}" alt="Card image cap">{% endif %}
+            {% if note.main_photo_url %}
+              <img class="card-img-top" src="{{ note.main_photo_url }}" alt="Card image cap">{% endif %}
           <div class="card-body">
             <h5 class="card-title">{{ note.full_name }}</h5>
             <p class="card-text">{{ note.description }}</p>

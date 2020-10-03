@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}User: {{ object.username }} Delete Note{% endblock title %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumbs1">
+    <div class="breadcrumbs1_inner"><a href="index.html">Home Page</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp; Delete Note</div>
+  </div>
+{% endblock %}
+
+{% block content %}
+    {% for message in messages %}
+      <div class="alert alert-success">
+          {{ message }}
+      </div>
+    {% endfor %}
+  <form method="post" class="text-center font-weight-bold">{% csrf_token %}
+    <h3 ><b>Are you sure you want to delete "{{ object }}"?</b></h3>
+    <input type="submit" value="Confirm" class="btn btn-danger">
+  </form>
+{% endblock content %}
+

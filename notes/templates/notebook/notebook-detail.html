@@ -24,7 +24,7 @@
       <input type="submit" class="btn btn-info">
 
     </form>
-    <button class="btn btn-danger"><a href="#">Delete</a></button>
+    <button class="btn btn-danger"><a href="{% url "notebook:note-delete"  object.id  %}">Delete</a></button>
   </div>
 {% endblock content %}
 
