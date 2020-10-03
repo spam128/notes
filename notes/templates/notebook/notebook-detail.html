@@ -5,14 +5,26 @@
 {% block title %}User: {{ object.username }} Note{% endblock title %}
 
 {% block breadcrumbs %}
-<div class="breadcrumbs1">
-<div class="breadcrumbs1_inner"><a href="index.html">Home Page</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp; Note</div>
-</div>
+  <div class="breadcrumbs1">
+    <div class="breadcrumbs1_inner"><a href="index.html">Home Page</a>&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp; Note</div>
+  </div>
 {% endblock %}
 
 {% block content %}
+    {% for message in messages %}
+      <div class="alert alert-success">
+          {{ message }}
+      </div>
+    {% endfor %}
   <div class="container">
-    {% crispy form %}
+    <form class="span12" id="note_form" enctype="multipart/form-data" method="post"
+          action="{% url "notebook:note-detail" selected_type %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+      <input type="submit" class="btn btn-info">
+
+    </form>
+    <button class="btn btn-danger"><a href="#">Delete</a></button>
   </div>
 {% endblock content %}
 
