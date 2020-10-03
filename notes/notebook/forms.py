@@ -47,4 +47,13 @@ class PhotoForm(forms.ModelForm):
         fields = '__all__'
 
 
-PhotoFormSet = modelformset_factory(Photo, fields=('full_name', 'description', 'photo'), extra=3)
+PhotoFormSet = modelformset_factory(
+    Photo,
+    fields=('full_name', 'description', 'photo'),
+    widgets={
+        'full_name': forms.TextInput(
+            attrs={'placeholder': 'Photo Name', 'label': 'Name'}),
+        'description': forms.Textarea(
+            attrs={'placeholder': 'Photo Description', 'label': 'Description',
+                   'width': '90%'})
+    })
