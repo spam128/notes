@@ -12,7 +12,7 @@
             <li class="active sub-menu sub-menu-1"><a href="{{ type.get_list_url }}">{{ type.full_name }}</a>
               <ul>
                   {% for category in type.categories.all %}
-                    <li><a href="#">{{ category.full_name }}</a></li>
+                    <li><a href="{{ category.get_notes_list_url }}">{{ category.full_name }}</a></li>
                   {% endfor %}
               </ul>
             </li>
