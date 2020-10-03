@@ -1,4 +1,5 @@
-from django.urls import reverse
+import os
+from django.urls import reverse, reverse_lazy
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
@@ -8,7 +9,7 @@ User = get_user_model()
 
 class Category(models.Model):
     full_name = models.CharField(max_length=200)
-    type = models.ForeignKey('Type', on_delete=models.PROTECT, blank=True, null=True, related_name='notes')
+    type = models.ForeignKey('Type', on_delete=models.PROTECT, blank=True, null=True, related_name='categories')
 
     class Meta:
         verbose_name = 'category'
@@ -20,6 +21,9 @@ class Category(models.Model):
 
     # def get_absolute_url(self):
     #     return reverse('university_detail', args=[str(self.id)])
+
+    def get_notes_list_url(self):
+        return reverse_lazy('notebook:note-category-list', args=[self.id, ])
 
 
 class Type(models.Model):
@@ -34,7 +38,7 @@ class Type(models.Model):
         return self.full_name
 
     def get_list_url(self):
-        return reverse('notebook:{type_full_name}-list'.format(type_full_name=self.full_name.lower().replace(' ', '_')))
+        return reverse('notebook:note-list', args=[self.id, ])
 
 
 class Note(models.Model):
@@ -55,12 +59,22 @@ class Note(models.Model):
     def get_absolute_url(self):
         return reverse('notebook:note-detail', args=[str(self.id), ])
 
+    def main_photo_url(self):
+        first_photo = self.photos.first()
+        if first_photo:
+            return first_photo.photo.url
+
+
+def get_photo_path(instance, filename):
+    return os.path.join(
+        "photos/" + instance.note.category.type.full_name + instance.note.category.full_name, filename)
+
 
 class Photo(models.Model):
     full_name = models.CharField(max_length=200)
     description = models.CharField(max_length=2048)
 
-    photo = models.ImageField()
+    photo = models.ImageField(upload_to=get_photo_path)
 
     note = models.ForeignKey(Note, related_name='photos', on_delete=models.CASCADE)
 
