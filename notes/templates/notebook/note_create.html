@@ -12,17 +12,37 @@
 {% endblock %}
 
 {% block content %}
-  <form method="post" action="{% url "notebook:note-add" %}">
+  <form class="span12" id="note_form" method="post" action="{% url "notebook:note-add" %}">
       {% csrf_token %}
     <div class="container">
-      <h2>Note</h2>
-        {% crispy form %}
-      <div class="line2"></div>
-      <h2>Photos</h2>
-        {% crispy photo_formset %}
+      <div class="row">
+        <div class="col">
+          <h2>Note</h2>
+            {% crispy form %}
+          <div class="line2"></div>
+          <h2>Photos</h2>
+          <div class="line1"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table span1" border="0" style="padding: 4px; margin:4px;">
+              {{ photo_formset.as_table }}
+          </table>
+        </div>
+      </div>
+        {{ photo_formset.management_form }}
       <div class="line1"></div>
-      <input type="submit" class="btn btn-info" >
+      <input type="submit" class="btn btn-info">
     </div>
   </form>
+  <script type="text/javascript">
+      $(function () {
+          $('#note_form table ').formset({
+              'addText': '<div class="span10"><div class="line1"></div><button class="btn btn-info" style="display:inline-block; margin:5px;">add another</button></div>',
+              'deleteText': '<button class="btn btn-danger">remove</button>'
+          });
+      })
+  </script>
 {% endblock content %}
 
