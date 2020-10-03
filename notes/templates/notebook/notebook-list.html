@@ -13,19 +13,19 @@
 {% endblock %}
 
 {% block content %}
-  <a href="{% url 'notebook:note-create' %}">
+  <a href="{% url 'notebook:note-add' selected_type %}">
     <button class="btn btn-danger">Dodaj</button>
   </a>
   <div class="line1"></div>
   <div class="container">
-      {% for flower in object_list %}
+      {% for note in object_list %}
         <div class="card span4" style="width: 18rem;padding: 4px">
-          <img class="card-img-top" src="/static/notes/images/gallery09.jpg" alt="Card image cap">
+         {% if note.main_photo_url %} <img class="card-img-top" src="{{ note.main_photo_url }}" alt="Card image cap">{% endif %}
           <div class="card-body">
-            <h5 class="card-title">{{ flower.full_name }}</h5>
-            <p class="card-text">{{ flower.description }}</p>
+            <h5 class="card-title">{{ note.full_name }}</h5>
+            <p class="card-text">{{ note.description }}</p>
           </div>
-          <a href="{{ flower.get_absolute_url }}">
+          <a href="{{ note.get_absolute_url }}">
             <button class="btn btn-success">Edytuj</button>
           </a>
         </div>
