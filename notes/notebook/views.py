@@ -125,7 +125,7 @@ class NoteDeleteView(LoginRequiredMixin, DeleteView):
         return Note.objects.filter(user=self.request.user)
 
     def get_context_data(self, *args, **kwargs):
-        context=super().get_context_data(*args,**kwargs)
+        context = super().get_context_data(*args, **kwargs)
         add_navbar_variables(context, context['note'].category.type.id)
         return context
 
