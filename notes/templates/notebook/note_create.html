@@ -12,7 +12,8 @@
 {% endblock %}
 
 {% block content %}
-  <form class="span12" id="note_form" enctype="multipart/form-data" method="post" action="{% url "notebook:note-add" %}">
+  <form class="span12" id="note_form" enctype="multipart/form-data" method="post"
+        action="{% url "notebook:note-add" selected_type %}">
       {% csrf_token %}
     <div class="container">
       <div class="row">
